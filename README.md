@@ -1,17 +1,15 @@
 # codox-klipse-theme
 Klipse theme for codox
 
-## Live Documentation
-
 You can make your `codox` documentation live and interactive with the 
-[KLIPSE plugin](https://github.com/viebel/klipse), by including the 
-`:klipse` theme in your `project.clj`.
+[KLIPSE plugin](https://github.com/viebel/klipse).
 
+## Usage
 Add this to your `dev-dependencies` in `project.clj`:
 
 [![Clojars Project](https://img.shields.io/clojars/v/viebel/codox-klipse-theme.svg)](https://clojars.org/viebel/codox-klipse-theme)
 
-And  add the following settings to the `:codox` map
+And add the following settings to the `:codox` map.
 
 
 Lets' say your github user is `my_user` and your repo is `my_repo`, 
