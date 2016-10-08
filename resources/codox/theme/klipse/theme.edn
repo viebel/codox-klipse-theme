@@ -1,6 +1,4 @@
-{:transforms [[:body
-Expecting 'STRING', '}'
-:transforms
+{:transforms
  [[:body]
   [:prepend
    [:link
