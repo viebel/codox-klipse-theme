@@ -44,6 +44,10 @@ And in the docstring of `my_ns/my_func`, add the code examples like this:
 
 (`~~~klipse` creates a code block with `class="klipse"`.)
 
+
+- The `:klipse/external-libs` option lets KLIPSE know where to look for your source code in order to evaluate it in the browser
+- The `:klipse/require-statement` option contains a string to create the namespace where the code from your documentation is going to run. KLIPSE will create a hidden code snippet with this `require` code.
+
 Take a look at how it is done in the gadjett library:
 
 - The [project.clj file](https://github.com/viebel/gadjett/blob/master/project.clj#L16-L25)
