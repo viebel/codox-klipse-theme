@@ -1,8 +1,16 @@
-# codox-klipse-theme
-Klipse theme for codox
+# Automatically genererated live documentation.
 
-You can make your `codox` documentation live and interactive with the 
+
+[codox](https://github.com/weavejester/codox) is a great tool for generating API documentation from Clojure or ClojureScript source code.
+
+With the klipse theme for codox, you can make your `codox` documentation live and interactive powered by the 
 [KLIPSE plugin](https://github.com/viebel/klipse).
+
+The prerequesite is that your library is either:
+
+- A clojurescript library
+- A portable clojure library that uses reader conditionals
+
 
 ## Usage
 Add this to your `dev-dependencies` in `project.clj`:
@@ -36,5 +44,7 @@ And in the docstring of `my_ns/my_func`, add the code examples like this:
 
 (`~~~klipse` creates a code block with `class="klipse"`.)
 
-Take a look at how it is done in the
-[gadjett library](https://github.com/viebel/gadjett).
+Take a look at how it is done in the gadjett library:
+
+- The [project.clj file](https://github.com/viebel/gadjett/blob/master/project.clj#L16-L25)
+- The [live documentation](http://viebel.github.io/gadjett/gadjett.collections.html)
