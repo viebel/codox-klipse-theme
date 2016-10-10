@@ -1,4 +1,4 @@
-# Clojure[script] automatically genererated live documentation.
+# Clojure[script] automatically generated live documentation.
 
 
 [codox](https://github.com/weavejester/codox) is a great tool for generating API documentation from Clojure or ClojureScript source code.
