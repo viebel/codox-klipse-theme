@@ -6,15 +6,18 @@
 With the klipse theme for codox, you can make your `codox` documentation live and interactive powered by the 
 [KLIPSE plugin](https://github.com/viebel/klipse).
 
+In addition to **words** that describe your functions, now you can add **interactive code examples**. It will be much easier for your users to understand how to use your functions.
+
+
+
+## Usage
+
 The prerequesite is that your library is either:
 
 - A clojurescript library
 - A portable clojure library that uses reader conditionals
 
-
-## Usage
-
-Add this to your `dev-dependencies` in `project.clj`:
+Add `codox-klipse-theme` to your `dev-dependencies` in `project.clj`:
 
 [![Clojars Project](https://img.shields.io/clojars/v/viebel/codox-klipse-theme.svg)](https://clojars.org/viebel/codox-klipse-theme)
 
@@ -47,8 +50,9 @@ And in the docstring of `my_ns/my_func`, add the code examples like this:
 
 ## Explanations
 
-- The `:klipse/external-libs` option lets KLIPSE know where to look for your source code in order to evaluate it in the browser
+- The `:klipse/external-libs` option lets KLIPSE know where to look for your source code in order to evaluate it in the browser.
 - The `:klipse/require-statement` option contains a string to create the namespace where the code from your documentation is going to run. KLIPSE will create a hidden code snippet with this `require` code.
+- It is not mandatory to use `:markdown` but it is much easier. Feel free to open an issue if you need support for other formats.
 
 ## Example
 
