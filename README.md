@@ -8,6 +8,7 @@ With the klipse theme for codox, you can make your `codox` documentation live an
 
 In addition to **words** that describe your functions, now you can add **interactive code examples**. It will be much easier for your users to understand how to use your functions.
 
+![Gadjett](https://github.com/viebel/codox-klipse-theme/raw/master/gadjett.gif)
 
 
 ## Usage
