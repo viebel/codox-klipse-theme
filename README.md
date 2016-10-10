@@ -13,6 +13,7 @@ The prerequesite is that your library is either:
 
 
 ## Usage
+
 Add this to your `dev-dependencies` in `project.clj`:
 
 [![Clojars Project](https://img.shields.io/clojars/v/viebel/codox-klipse-theme.svg)](https://clojars.org/viebel/codox-klipse-theme)
@@ -44,9 +45,12 @@ And in the docstring of `my_ns/my_func`, add the code examples like this:
 
 (`~~~klipse` creates a code block with `class="klipse"`.)
 
+## Explanations
 
 - The `:klipse/external-libs` option lets KLIPSE know where to look for your source code in order to evaluate it in the browser
 - The `:klipse/require-statement` option contains a string to create the namespace where the code from your documentation is going to run. KLIPSE will create a hidden code snippet with this `require` code.
+
+## Example
 
 Take a look at how it is done in the gadjett library:
 
