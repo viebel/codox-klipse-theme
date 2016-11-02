@@ -13,7 +13,9 @@ In addition to **words** that describe your functions, now you can add **interac
 
 ## Usage
 
-You must use `codox` version above `0.10.1`
+You must use `codox` version above `0.10.1`.
+
+
 The prerequesite is that your library is either:
 
 - A clojurescript library
