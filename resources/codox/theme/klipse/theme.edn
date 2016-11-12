@@ -1,5 +1,10 @@
-{:transforms
- [[:body]
+{:defaults {:klipse/selector ".klipse"
+            :klipse/explicit-load false}
+ :transforms
+ [[:#header]
+  [:prepend [:h2 [:button {:id "klipse-button"}
+                  Interactive Doc]]]
+  [:body]
   [:prepend
    [:link
     {:rel "stylesheet"
@@ -12,8 +17,8 @@
   [:body]
   [:append
    [:script
-    "window.klipse_settings = {
-    selector: '.klipse',
+    ("window.klipse_settings = {
+    selector: " "'.klipse," :klipse/selector "',
     codemirror_options_in: {
     lineWrapping: true,
     autoCloseBrackets: true
@@ -21,5 +26,29 @@
     codemirror_options_out: {
     lineWrapping: true
     }
-    };"]
-   [:script {:src "https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"}]]]}
+    };" )]
+   [:script
+    ("function klipseLoadScript(src) {
+      sessionStorage.setItem('klipse', true);
+      var s = document.createElement('script');
+      s.setAttribute('src',src);
+      document.head.appendChild(s);
+      }
+    if(!" :klipse/explicit-load ") {
+      klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
+      $('#klipse-button').remove();
+    } else {
+      if(sessionStorage.getItem('klipse') || window.location.search.match(/klipse=1/)) {
+        sessionStorage.setItem('klipse', true);
+        $('#klipse-button').remove();
+        klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
+    } else {
+      $('#klipse-button').click(function(){
+      sessionStorage.setItem('klipse', true);
+      $('#klipse-button').remove();
+      klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
+     });
+    }
+    }
+    ")
+    ]]]}
