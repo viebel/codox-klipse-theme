@@ -28,27 +28,34 @@
     }
     };" )]
    [:script
-    ("function klipseLoadScript(src) {
-      sessionStorage.setItem('klipse', true);
+    ("
+    function klipseLocalStorageEnabled() {
+        var mod = 'modernizr';
+        try {
+          localStorage.setItem(mod, mod);
+          localStorage.removeItem(mod);
+          return true;
+        } catch (e) {
+          return false;
+        }
+     }
+     function klipseLoad() {
+      if (klipseLocalStorageEnabled()) { sessionStorage.setItem('klipse', true);}
+      $('#klipse-button').remove();
       var s = document.createElement('script');
-      s.setAttribute('src',src);
+      s.setAttribute('src','https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
       document.head.appendChild(s);
       }
     if(!" :klipse/explicit-load ") {
-      klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
-      $('#klipse-button').remove();
+      klipseLoad();
     } else {
-      if(sessionStorage.getItem('klipse') || window.location.search.match(/klipse=1/)) {
-        sessionStorage.setItem('klipse', true);
-        $('#klipse-button').remove();
-        klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
-    } else {
-      $('#klipse-button').click(function(){
-      sessionStorage.setItem('klipse', true);
-      $('#klipse-button').remove();
-      klipseLoadScript('https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
-     });
-    }
+      if((klipseLocalStorageEnabled() && sessionStorage.getItem('klipse')) || window.location.search.match(/klipse=1/)) {
+        klipseLoad();
+      } else {
+        $('#klipse-button').click(function(){
+        klipseLoad();
+       });
+      }
     }
     ")
     ]]]}
