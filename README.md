@@ -40,7 +40,7 @@ the following options to `:codox`:
          "https://raw.githubusercontent.com/my_user/my_repo/master/src/"
           :klipse/require-statement
           "(ns my.test
-          (:require [my_repo.my_ns :as my_ns :refer [my_func]]))"]]
+          (:require [my_repo.my_ns :as my_ns :refer [my_func]]))"}]]
          }
 ```
 
