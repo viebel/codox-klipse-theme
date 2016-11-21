@@ -1,9 +1,8 @@
 {:defaults {:klipse/selector ".klipse"
             :klipse/explicit-load false}
  :transforms
- [[:#header]
-  [:prepend [:h2 [:button {:id "klipse-button"}
-                  Interactive Doc]]]
+ [[:#content]
+  [:prepend [:p {:id "klipse-loader-wrapper"} "Click " [:a {:id "klipse-loader" :href "javascript:void(0)"} here] " to make these examples interactive with ClojureScript."]]
   [:body]
   [:prepend
    [:link
@@ -41,7 +40,7 @@
      }
      function klipseLoad() {
       if (klipseLocalStorageEnabled()) { sessionStorage.setItem('klipse', true);}
-      $('#klipse-button').remove();
+      $('#klipse-loader-wrapper').remove();
       var s = document.createElement('script');
       s.setAttribute('src','https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js');
       document.head.appendChild(s);
@@ -52,7 +51,7 @@
       if((klipseLocalStorageEnabled() && sessionStorage.getItem('klipse')) || window.location.search.match(/klipse=1/)) {
         klipseLoad();
       } else {
-        $('#klipse-button').click(function(){
+        $('#klipse-loader').click(function(){
         klipseLoad();
        });
       }
