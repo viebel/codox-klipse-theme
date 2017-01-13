@@ -64,3 +64,45 @@ Take a look at how it is done in the gadjett library:
 
 - The [project.clj file](https://github.com/viebel/gadjett/blob/master/project.clj#L16-L25)
 - The [live documentation](http://viebel.github.io/gadjett/gadjett.collections.html)
+
+
+## Performances and caching
+
+Retrieving the sources of your lib at run-time slows down the documentation page load - especially if your lib creates a lot of macros.
+
+A solution to that is to cache your namespaces.
+
+Here is how it works:
+
+#### 1. create the cached namespaces
+
+Here is how to create the cached namespaces for `my_repo.my_ns` with `lumo` and store them under `docs/cache-cljs`
+
+```bash
+lumo -k docs/cache-cljs -c`lein classpath` -e "(require 'my_repo.my_ns)"
+```
+Be patient: It might take a couple of seconds to generate all the cached namespaces....
+
+
+Now you need to tell klipse what namespaces are cached and what is the cached location (instead of `:klipse/external-libs`:
+
+```clojure
+ :codox {:metadata {:doc/format :markdown}
+         :output-path "docs"
+         :themes [:default [:klipse
+         {
+         :klipse/cached-macro-ns-regexp #"/my_repo\..*/"
+         :klipse/cached-ns-regexp #"/my_repo\..*/"
+         :klipse/cached-ns-root "./cache-cljs"
+         :klipse/require-statement
+          "(ns my.test
+          (:require [my_repo.my_ns :as my_ns :refer [my_func]]))"]]
+         }
+```
+
+The reason we use regexps is that your lib might depend on other libs that are also cached. In this case you will need have:
+
+```clojure
+         :klipse/cached-ns-regexp #"/my_repo\..*/|other_repo\..*"
+```
+
