@@ -1,5 +1,9 @@
 {:defaults {:klipse/selector ".klipse"
-            :klipse/explicit-load false}
+            :klipse/explicit-load false
+	    :klipse/cached-macro-ns-regexp false
+            :klipse/cached-ns-regexp false
+            :klipse/external-libs ""
+            :klipse/cached-ns-root nil}
  :transforms
  [[:#content]
   [:prepend [:p {:id "klipse-loader-wrapper"} "Click " [:a {:id "klipse-loader" :href "javascript:void(0)"} here] " to make these examples interactive with ClojureScript."]]
@@ -24,8 +28,13 @@
     },
     codemirror_options_out: {
     lineWrapping: true
-    }
-    };" )]
+    },
+    };\n
+    "  
+    "if (" :klipse/cached-macro-ns-regexp ") { window.klipse_settings.clojure_cached_macro_ns_regexp =  " :klipse/cached-macro-ns-regexp";}\n"
+    "if (" :klipse/cached-ns-regexp ") { window.klipse_settings.clojure_cached_ns_regexp =  " :klipse/cached-ns-regexp";}\n"
+     "if ('" :klipse/cached-ns-root "') { window.klipse_settings.cached_ns_root =  '" :klipse/cached-ns-root "';}\n"
+     )]
    [:script
     ("
     function klipseLocalStorageEnabled() {

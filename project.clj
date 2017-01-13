@@ -1,3 +1,3 @@
-(defproject viebel/codox-klipse-theme "0.0.3"
+(defproject viebel/codox-klipse-theme "0.0.4"
   :description "Klipse theme for codox"
   :url "https://github.com/viebel/codox-klipse-theme")
