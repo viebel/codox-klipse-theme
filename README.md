@@ -83,6 +83,7 @@ lumo -k docs/cache-cljs -c`lein classpath` -e "(require 'my_repo.my_ns)"
 ```
 Be patient: It might take a couple of seconds to generate all the cached namespaces....
 
+#### 1. configure the cached namespaces in klipse
 
 Now you need to tell klipse what namespaces are cached and what is the cached location (instead of `:klipse/external-libs`:
 
