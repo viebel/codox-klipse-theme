@@ -92,8 +92,9 @@ Now you need to tell klipse what namespaces are cached and what is the cached lo
          :output-path "docs"
          :themes [:default [:klipse
          {
-         :klipse/cached-macro-ns-regexp #"/my_repo\..*/"
-         :klipse/cached-ns-regexp #"/my_repo\..*/"
+         :klipse/cached-macro-ns-regexp #"/my_repo\..*/" ; pay attention the regexp is expressed as a string wrapped in //
+         :klipse/cached-ns-regexp #"/my_repo\..*/" ; pay attention the regexp is expressed as a string wrapped in //
+         :klipse/bundled-ns-ignore-regexp #"/my_repo\..*/" ; pay attention the regexp is expressed as a string wrapped in //		 
          :klipse/cached-ns-root "./cache-cljs"
          :klipse/require-statement
           "(ns my.test
