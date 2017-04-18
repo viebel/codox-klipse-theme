@@ -13,7 +13,7 @@ In addition to **words** that describe your functions, now you can add **interac
 
 ## Usage
 
-You must use `codox` version above `0.10.1`.
+You must use `codox` version above `0.10.3`.
 
 
 The prerequesite is that your library is either:
@@ -21,9 +21,15 @@ The prerequesite is that your library is either:
 - A clojurescript library
 - A portable clojure library that uses reader conditionals
 
-Add `codox-klipse-theme` to your `dev-dependencies` in `project.clj`:
+
+Add `codox` and `codox-klipse-theme` to your `dev-dependencies` in `project.clj`:
 
 [![Clojars Project](https://img.shields.io/clojars/v/viebel/codox-klipse-theme.svg)](https://clojars.org/viebel/codox-klipse-theme)
+
+```clojure
+{:dependencies [[viebel/codox-klipse-theme "0.0.5"]]
+ :plugins [[lein-codox "0.10.3"]]}
+```
 
 And add the following settings to the `:codox` map.
 
